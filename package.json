@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
 "engines": {
-"node": "6.11.1"
+"node": "= 6.11.1"
 },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
