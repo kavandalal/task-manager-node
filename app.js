@@ -24,7 +24,7 @@ const start = async () => {
 		await connectDB(process.env.MONGO_URI);
 		// default for how to write the env variables
 		// with env file we can hide the data we dont want anyone to see
-		app.listen(port, console.log(`server is listening to ${port}`));
+		app.listen(port, console.log(`server i listening to ${port}`));
 	} catch (err) {
 		console.log(err);
 	}
