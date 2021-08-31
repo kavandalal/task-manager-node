@@ -3,6 +3,7 @@ const app = express();
 const tasks = require('./routes/tasks.js');
 const connectDB = require('./db/connect');
 require('dotenv').config();
+const notFound = require('./middleware/not-found');
 //to get data from env folder
 
 //middlewares
@@ -17,6 +18,7 @@ app.get('/hello', (req, res) => {
 
 app.use('/api/v1/tasks', tasks); // #1 //see 'routes/tasks.js' what this link does
 
+app.use(notFound);
 const port = process.env.PORT || 3000;
 
 const start = async () => {
@@ -24,7 +26,7 @@ const start = async () => {
 		await connectDB(process.env.MONGO_URI);
 		// default for how to write the env variables
 		// with env file we can hide the data we dont want anyone to see
-		app.listen(port, console.log(`server i listening to ${port}`));
+		app.listen(port, console.log(`server is listening to ${port}`));
 	} catch (err) {
 		console.log(err);
 	}
@@ -33,8 +35,9 @@ start();
 
 // files created in order(backend)
 // app.js
-//./controllers/tasks.js
+// ./controllers/tasks.js
 // ./routes/tasks.js
 // ./db/connect.js
 // .env
 // models/task.js
+// ./middleware/not-found.js
